@@ -119,12 +119,16 @@ scene.add( light );
 loader = new GLTFLoader();
 loader.load('./models/crate.glb', function (gltf) {
     const model = gltf.scene;
-    // model.position.z = ;
     model.position.x = 1;
     model.position.y = 1;
     model.position.z = 1;
     scene.add(model);
-    gltf.cameras;
+
+    // Add lights to the scene
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Ambient light
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Directional light
+    directionalLight.position.set(1, 1, 1).normalize(); // Set position of the light
+    scene.add(ambientLight, directionalLight);
 
     // Optional: You may want to manipulate the model or access its children here
 
