@@ -111,11 +111,20 @@ function pointCollected(point) {
 
 const scene = new THREE.Scene();
 
+const light = new THREE.PointLight( 0xff0000, 1, 100 );
+light.position.set( 1, 1, 1 );
+scene.add( light );
+
 // Load GLTF model
 loader = new GLTFLoader();
-loader.load('./cone.gltf', function (gltf) {
+loader.load('./models/crate.glb', function (gltf) {
     const model = gltf.scene;
+    // model.position.z = ;
+    model.position.x = 1;
+    model.position.y = 1;
+    model.position.z = 1;
     scene.add(model);
+    gltf.cameras;
 
     // Optional: You may want to manipulate the model or access its children here
 
