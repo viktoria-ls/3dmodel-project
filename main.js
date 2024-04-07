@@ -117,7 +117,7 @@ scene.add( light );
 
 // Load GLTF model
 loader = new GLTFLoader();
-loader.load('./models/crate.glb', function (gltf) {
+loader.load('./models/car.glb', function (gltf) {
     const model = gltf.scene;
     model.position.x = 1;
     model.position.y = 1;
